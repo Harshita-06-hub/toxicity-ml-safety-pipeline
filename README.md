@@ -1,5 +1,5 @@
 Computational Toxicology Pipeline (ClinTox)
-Overview
+Overview:
 
 This project implements a safety-critical machine learning pipeline for predicting molecular toxicity using the ClinTox dataset.
 Unlike standard classification workflows, this pipeline explicitly prioritizes safety, reliability, and interpretability over raw accuracy.
@@ -7,31 +7,31 @@ Unlike standard classification workflows, this pipeline explicitly prioritizes s
 In toxicology, a highly accurate model can still be dangerous if it fails to detect toxic compounds. This project is designed to address that reality by combining rigorous data curation, explainable AI, failure mode analysis, and applicability domain assessment to determine when a model should and should not be trusted.
 
 
-Who This Project Is For
+Who This Project Is For:
 This repository is intended for researchers, ML engineers, and toxicologists interested in safety-critical machine learning for early-stage drug discovery, where false negatives carry severe ethical and financial risk.
 
 
-Key Features
-Safety-First Modeling
+Key Features:
+Safety-First Modeling-
 Prioritizes Recall (sensitivity) to minimize False Negatives (missed toxic molecules), using threshold optimization rather than metric gaming.
 
-Rigorous Data Curation
+Rigorous Data Curation-
 Canonicalization, deduplication, and label consistency checks performed using RDKit to ensure data reliability.
 
-Explainable AI (XAI)
+Explainable AI (XAI)-
 SHAP (SHapley Additive exPlanations) used to identify global toxicity drivers and explain individual correct predictions and safety failures.
 
-Failure-Aware Analysis
+Failure-Aware Analysis-
 Systematic investigation of False Negatives to understand where and why the model fails.
 
-Applicability Domain & Trust Boundaries
+Applicability Domain & Trust Boundaries-
 Defines regions of chemical space where predictions are Trusted, require Caution, or should be Rejected outright.
 
-Metric Justification
+Metric Justification-
 Demonstrates why Accuracy is misleading in toxicology and motivates the use of Precision-Recall metrics.
 
 
-Pipeline Architecture
+Pipeline Architecture:
 The project is structured into clearly defined, sequential phases:
 
 | Phase | Description                   | Key Output                                                 |
@@ -60,7 +60,6 @@ matplotlib, seaborn
 
 Usage
 The pipeline is designed to be executed sequentially, with each phase building on the outputs of the previous one.
-
 Upload data
 Ensure clintox.csv.gz is present in the working directory.
 
@@ -77,18 +76,18 @@ Run Phases I–K
 Perform explainability, failure analysis, and applicability domain assessment.
 
 
-Key Results & Insights
-Naïve Accuracy Is Dangerous
+Key Results & Insights:
+Naïve Accuracy Is Dangerous-
 A model predicting “Non-Toxic” for all molecules achieves ~93% accuracy while missing all toxic compounds.
 
-Recall–Precision Trade-off Is Necessary
+Recall–Precision Trade-off Is Necessary-
 Lowering the decision threshold significantly reduces False Negatives at the cost of increased False Positives—an acceptable trade-off in early drug screening.
 
-Trust Boundaries Matter
+Trust Boundaries Matter-
 Model confidence alone is insufficient. Predictions for molecules outside the training chemical space must be rejected regardless of probability.
 
 
-Limitations & Future Work
+Limitations & Future Work:
 This study focuses on a single benchmark dataset (ClinTox) and a classical linear model to emphasize interpretability and safety analysis.
 Future extensions may include:
 
@@ -99,11 +98,11 @@ Structure-based validation via docking or molecular dynamics
 Graph Neural Networks with retained explainability constraints
 
 
-Disclaimer
+Disclaimer:
 This project is for computational research purposes only.
 It does not constitute medical advice, regulatory approval, or experimental validation.
 All predictions in the Caution or Out-of-Domain regions must be validated using appropriate in-vitro or in-vivo assays.
 
 
-License
+License:
 MIT License
